@@ -1,0 +1,40 @@
+{
+  "name": "yo-marquee",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/yo-marquee.js",
+  "keywords": [
+    "marquee",
+    "javascript",
+    "library",
+    "plugin",
+    "scrolling",
+    "effect",
+    "animation",
+    "autoFill",
+    "speed",
+    "direction"
+  ],
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "webpack serve --mode development --open",
+    "watch": "webpack --watch",
+    "lint": "eslint src"
+  },
+  "author": "Fahim Reza",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/preset-env": "^7.24.6",
+    "css-loader": "^7.1.2",
+    "eslint": "^9.3.0",
+    "mini-css-extract-plugin": "^2.9.0",
+    "sass-loader": "^14.2.1",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
+  },
+  "dependencies": {
+    "babel-loader": "^9.1.3"
+  }
+}
