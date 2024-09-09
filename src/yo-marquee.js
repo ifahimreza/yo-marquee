@@ -27,7 +27,7 @@ class YoMarquee {
 			...options,
 		};
 
-		this.container.className = 'yo-marquee';
+		this.container.classList.add('yo-marquee');
 		this.childrenElements = Array.from(this.container.children);
 		this.containerWidth = 0;
 		this.marqueeWidth = 0;

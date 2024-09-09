@@ -75,12 +75,11 @@
 }
 
 .yom-list {
+	flex: 0 0 auto;
 	display: flex;
 	min-width: auto;
 	flex-direction: row;
 	align-items: center;
-	gap: 10px;
-	list-style-type: none;
 }
 
 .yom-item {
