@@ -34,7 +34,7 @@ class YoMarquee {
 		this.multiplier = 1;
 		this.isMounted = false;
 
-		$this.destroy = () => {
+		this.destroy = () => {
 			this.marquee.innerHTML = '';
 			this.isMounted = false;
 		};
