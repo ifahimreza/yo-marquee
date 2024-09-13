@@ -201,6 +201,7 @@ class YoMarquee {
 			'--iteration-count',
 			this.options.loop ? `${this.options.loop}` : 'infinite'
 		);
+
 		this.marquee.style.setProperty(
 			'--min-width',
 			this.options.autoFill ? 'auto' : '100%'

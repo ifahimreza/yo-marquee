@@ -8,25 +8,11 @@
 	</head>
 	<body>
 		<div class="marquee-container">
-			<div class="demo-text">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-			</div>
-			<div class="demo-text">
-				Sed do eiusmod tempor incididunt ut labore et dolore magna
-				aliqua.
-			</div>
-			<div class="demo-text">
-				Ut enim ad minim veniam, quis nostrud exercitation ullamco
-				laboris nisi ut aliquip ex ea commodo consequat.
-			</div>
-			<div class="demo-text">
-				Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur.
-			</div>
-			<div class="demo-text">
-				Excepteur sint occaecat cupidatat non proident, sunt in culpa
-				qui officia deserunt mollit anim id est laborum.
-			</div>
+			<div class="demo-text">Lorem ipsum dolor sit amet.</div>
+			<div class="demo-text">Sed do eiusmod tempor incididunt.</div>
+			<div class="demo-text">Ut enim ad minim veniam.</div>
+			<div class="demo-text">Duis aute irure dolor in reprehenderit.</div>
+			<div class="demo-text">Excepteur sint cupidatat non proident.</div>
 		</div>
 
 		<script src="../dist/yo-marquee.min.js"></script>
@@ -36,10 +22,11 @@
 				const marquee = new YoMarquee(container, {
 					autoFill: true,
 					speed: 30,
-					loop: 1,
+					loop: 0,
 					direction: 'left',
 					pauseOnHover: true,
 					gradient: true,
+					gradientColor: '#000',
 				});
 			});
 		</script>
