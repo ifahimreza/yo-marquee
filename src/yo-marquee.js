@@ -24,20 +24,17 @@ class YoMarquee {
 			gradient: false,
 			gradientColor: 'white',
 			gradientWidth: 200,
+			destroy: false,
 			...options,
 		};
 
-		this.container.classList.add('yo-marquee');
 		this.childrenElements = Array.from(this.container.children);
 		this.containerWidth = 0;
 		this.marqueeWidth = 0;
 		this.multiplier = 1;
 		this.isMounted = false;
 
-		this.destroy = () => {
-			this.marquee.innerHTML = '';
-			this.isMounted = false;
-		};
+		this.resizeObserver = null;
 
 		this.init();
 	}
@@ -47,12 +44,47 @@ class YoMarquee {
 	 * setting up resize observers, and applying styles.
 	 */
 	init() {
+		this.container.classList.add('yo-marquee');
 		this.wrapInitialItems();
 		this.calculateWidth();
 		this.setupResizeObserver();
 		this.applyStyles();
 		this.isMounted = true;
 		this.render();
+	}
+
+	/**
+	 * Destroys the marquee by disconnecting the resize observer, clearing the container,
+	 * and restoring the original children.
+	 */
+	destroy() {
+		if (!this.isMounted) return;
+
+		this.isMounted = false;
+
+		if (this.resizeObserver) {
+			this.resizeObserver.disconnect();
+		}
+
+		// Remove all added classes and styles
+		this.container.classList.remove('yo-marquee');
+		this.container.removeAttribute('style');
+
+		// Clear the container
+		this.container.innerHTML = '';
+
+		// Restore original children
+		this.childrenElements.forEach((child) => {
+			this.container.appendChild(child);
+		});
+
+		// Reset properties
+		this.marquee = null;
+		this.initialChildContainer = null;
+		this.children = null;
+		this.containerWidth = 0;
+		this.marqueeWidth = 0;
+		this.multiplier = 1;
 	}
 
 	/**
@@ -251,14 +283,16 @@ class YoMarquee {
 	 */
 	render() {
 		if (!this.isMounted) return;
-		this.marquee.innerHTML = ''; // Clear existing content
-		this.marquee.appendChild(this.initialChildContainer); // Add initial container
+		this.marquee.innerHTML = '';
+		this.marquee.appendChild(this.initialChildContainer);
+
 		this.initialChildContainer.appendChild(
 			this.multiplyChildren(this.multiplier - 1)
-		); // Append cloned children
+		);
+
 		this.initialChildContainer.appendChild(
 			this.multiplyChildren(this.multiplier)
-		); // Append cloned children again
+		);
 	}
 }
 
@@ -266,4 +300,8 @@ export default YoMarquee;
 
 if (typeof window !== 'undefined') {
 	window.YoMarquee = YoMarquee;
+}
+
+if (typeof module !== 'undefined') {
+	module.exports = YoMarquee;
 }

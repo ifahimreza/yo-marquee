@@ -28,6 +28,18 @@
 					gradient: true,
 					gradientColor: '#000',
 				});
+
+				// set timeout after 5 seconds destroy marquee
+
+				setTimeout(() => {
+					marquee.destroy();
+				}, 5000);
+
+				// set timeout after 10 seconds reinitialize marquee
+
+				setTimeout(() => {
+					marquee.init();
+				}, 10000);
 			});
 		</script>
 		<style>
