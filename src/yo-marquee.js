@@ -301,7 +301,3 @@ export default YoMarquee;
 if (typeof window !== 'undefined') {
 	window.YoMarquee = YoMarquee;
 }
-
-if (typeof module !== 'undefined') {
-	module.exports = YoMarquee;
-}
